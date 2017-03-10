@@ -1,0 +1,41 @@
+{
+  "name": "MyAllpatchRole",
+  "default_attributes": {
+    "templateadmin": {
+      "sudo": {
+        "groups": [
+          "oracleadmin",
+          "oracleuser",
+          "oracledba",
+          "oraclemanager"
+        ],
+        "users": [
+          "ashish",
+          "suresh",
+          "ganesh",
+          "ramesh",
+          "sagar",
+          "nilesh",
+          "Krishna",
+          "rajpal"
+        ]
+      }
+    }
+  },
+
+  "run_list": [
+    "recipe[mytestfirstora]",
+    "recipe[templateadmin]"
+  ],
+  "env_run_lists": {
+    "dev":[
+      "recipe[gitinstaller::newrecipe]"
+  ],
+     "test":[
+      "recipe[patching]"
+  ],
+     "prod":[
+      "recipe[testenvironment]"
+  ]
+  }
+}
