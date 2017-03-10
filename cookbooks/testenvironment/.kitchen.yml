@@ -1,0 +1,14 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: oracle_box
+
+suites:
+  - name: nomes
+    run_list:
+      - recipe[testenvironment::default]
+    attributes:
